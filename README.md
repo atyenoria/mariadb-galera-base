@@ -1,6 +1,4 @@
-# MySQL Galera on Mesos
 
-Compare ["MariaDB Galera on a Mesos Cluster with Docker"](http://sttts.github.io/galera/mesos/2015/03/04/galera-on-mesos.html).
 
 ```bash
 $ docker run -d -v /data:/var/lib/mysql -p 3306 -p 8080 \
