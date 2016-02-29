@@ -1,6 +1,4 @@
 FROM debian:jessie
-ENV DEBIAN_FRONTEND noninteractive
-
 
 RUN apt-get update
 RUN apt-get install -y  software-properties-common
@@ -19,23 +17,4 @@ RUN chmod +x /bin/galera-healthcheck
 
 
 
-# configure mysqld
-RUN sed -i 's/#? *bind-address/# bind-address/' /etc/mysql/my.cnf
-RUN sed -i 's/#? *log-error/# log-error/' /etc/mysql/my.cnf
-# ADD conf.d/utf8.cnf /etc/mysql/conf.d/utf8.cnf
-# ADD conf.d/galera.cnf /etc/mysql/conf.d/galera.cnf
-# RUN chmod 0644 /etc/mysql/conf.d/utf8.cnf
-# RUN chmod 0644 /etc/mysql/conf.d/galera.cnf
-
-RUN echo "alias lso=\"lsof -i -n -P\"" >> ~/.bashrc
-
 EXPOSE 3306 4444 4567 4568
-VOLUME ["/var/lib/mysql"]
-# COPY mysqld.sh /mysqld.sh
-# COPY start /start
-# RUN chmod 555 /start /mysqld.sh
-# ENTRYPOINT ["/start"]
-
-
-ENV XTRABACKUP_PASSWORD root
-ENV MYSQL_ROOT_PASSWORD root
