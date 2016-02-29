@@ -1,0 +1,16 @@
+master:
+  build: ../
+  container_name: master
+  ports:
+    - "8080:8080"
+    - "4444:4444"
+    - "4567:4567"
+    - "3306:3306"
+  # command: mysqld --wsrep-new-cluster --init-file=/tmp/bootstrap.sql
+  command: bash
+  tty: true
+  volumes:
+    - "./mysql:/etc/mysql"
+  environment:
+    IP: "test"
+    TERM: "dumb"
