@@ -1,18 +1,3 @@
-[mysqld]
-wsrep_cluster_name=DBCLUSTER
-wsrep_cluster_address=gcomm://192.168.5.6
-wsrep_node_address=192.168.5.5
-wsrep_provider='/usr/lib64/galera/libgalera_smm.so'
-wsrep_sst_method=rsync
-wsrep_slave_threads=4
-default_storage_engine=InnoDB
-binlog_format=ROW
-innodb_autoinc_lock_mode=2
-innodb_locks_unsafe_for_binlog=1
-
-
-
-
 #cluster health check
 mysql -h l1.com -u root -proot -e "show status like 'wsrep%';"
 mysql -h l1.com -u root -proot -e "show status like '%';"
