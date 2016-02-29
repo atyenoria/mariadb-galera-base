@@ -14,10 +14,13 @@ innodb_locks_unsafe_for_binlog=1
 
 
 #cluster health check
-mysql -h l1.com -u root -proot -e "show status like 'wsrep_%';"
+mysql -h l1.com -u root -proot -e "show status like 'wsrep%';"
+mysql -h l1.com -u root -proot -e "show status like '%';"
 
 
 
+
+GRANT ALL PRIVILEGES ON *.* TO root@'192.168.%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 
 
 
@@ -28,9 +31,9 @@ service mysql start --wsrep-new-cluster --init-file=/tmp/bootstrap.sql
 service mysql start --init-file=/tmp/bootstrap.sql
 
 
+show status like 'wsrep_%';
 
-
-mysql -h l1.com -u root -p -e "show status like 'wsrep_%';"
+mysql -h l1.com -u root -p -e "show status like 'wsrep_%';""
 mysql -h l1.com -u root -p
 
 

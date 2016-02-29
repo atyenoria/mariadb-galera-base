@@ -1,9 +1,6 @@
 - use mysql -u root -h "docker network"dke  after copntainer login
 
 
-
-
-
 # performance comparison result 20160203
 
 #read

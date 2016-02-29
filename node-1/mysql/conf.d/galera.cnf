@@ -1,6 +1,7 @@
 [mysql]
 user=root
 password=root
+
 [mysqld]
 query_cache_size=0
 binlog_format=ROW
@@ -9,18 +10,22 @@ innodb_autoinc_lock_mode=2
 query_cache_type=0
 bind-address=0.0.0.0
 
-# Galera Provider Configuration
+innodb_locks_unsafe_for_binlog=1
+
+
+[galera]
+wsrep_on=ON
 wsrep_provider=/usr/lib/galera/libgalera_smm.so
-#wsrep_provider_options="gcache.size=32G"
-
-# Galera Cluster Configuration
 wsrep_cluster_name="test_cluster"
-wsrep_cluster_address="gcomm://192.168.99.100,192.168.99.101,192.168.99.102"
-
-# Galera Synchronization Congifuration
+wsrep_cluster_address=gcomm://192.168.99.100,192.168.99.101,192.168.99.102
+#wsrep_provider_options="gcache.size=32G"
 wsrep_sst_method=rsync
-#wsrep_sst_auth=user:pass
-
-# Galera Node Configuration
+wsrep_sst_auth=root:root
 wsrep_node_address="192.168.99.101"
-wsrep_node_name="test"
+wsrep_node_name="l2"
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+bind-address=0.0.0.0
+wsrep_slave_threads=1
+innodb_flush_log_at_trx_commit=0

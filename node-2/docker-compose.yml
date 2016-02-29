@@ -6,11 +6,14 @@ master:
     - "4444:4444"
     - "4567:4567"
     - "3306:3306"
-  # command: mysqld --init-file=/tmp/bootstrap.sql
-  command: bash
+  # command: bash
+  command: mysqld --init-file=/bootstrap.sql
   tty: true
   volumes:
     - "./mysql:/etc/mysql"
   environment:
     IP: "test"
     TERM: "dumb"
+
+
+

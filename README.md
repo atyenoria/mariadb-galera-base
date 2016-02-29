@@ -1,5 +1,3 @@
-
-
 ```bash
 $ docker run -d -v /data:/var/lib/mysql -p 3306 -p 8080 \
     -e XTRABACKUP_PASSWORD=abc -e MYSQL_ROOT_PASSWORD=secret \
