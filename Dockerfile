@@ -6,7 +6,7 @@ RUN apt-get install -y  software-properties-common
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN add-apt-repository 'deb [arch=amd64,i386] http://ftp.yz.yamagata-u.ac.jp/pub/dbms/mariadb/repo/10.1/debian jessie main'
 
-RUN apt-get -y --no-install-recommends --no-install-suggests install host socat unzip ca-certificates wget rsync curl dnsutils
+RUN apt-get update && apt-get -y --no-install-recommends --no-install-suggests install host socat unzip ca-certificates wget rsync curl dnsutils
 RUN apt-get -y install mariadb-server mariadb-client xtrabackup galera
 
 
