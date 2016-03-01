@@ -37,5 +37,18 @@ RUN mv major-MySQLTuner-perl-*/mysqltuner.pl /usr/local/bin
 
 
 
+#vim plugin
+RUN apt-get install -y vim
+RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+RUN git clone https://github.com/atyenoria/vim-pathogen.git ~/.vim.tmp && \
+    ln -sf ~/.vim.tmp/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim && \
+    git clone https://github.com/atyenoria/nerdcommenter.git ~/.vim/bundle/nerdcommenter && \
+    git clone https://github.com/atyenoria/delimitMate.git ~/.vim/bundle/delimitMate && \
+    git clone https://github.com/atyenoria/PDV--phpDocumentor-for-Vim.git ~/.vim/bundle/phpDocumentor && \
+    git clone https://github.com/atyenoria/vim-colorschemes.git ~/.vim/bundle/colorschemes && \
+    git clone https://github.com/atyenoria/vim-misc.git ~/.vim/bundle/vim-misc && \
+    git clone https://github.com/atyenoria/vim-colorscheme-switcher.git ~/.vim/bundle/colorscheme-switcher
+ADD .vimrc /root/.vimrc
+
 
 EXPOSE 3306 4444 4567 4568
