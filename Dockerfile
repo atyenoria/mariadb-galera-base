@@ -8,7 +8,7 @@ RUN add-apt-repository 'deb [arch=amd64,i386] http://ftp.yz.yamagata-u.ac.jp/pub
 
 
 RUN apt-get update
-RUN apt-get -y --no-install-recommends --no-install-suggests install host socat unzip ca-certificates wget rsync
+RUN apt-get -y --no-install-recommends --no-install-suggests install host socat unzip ca-certificates wget rsync curl
 RUN apt-get -y install mariadb-server mariadb-client xtrabackup galera
 
 
