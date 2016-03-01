@@ -18,7 +18,7 @@ service mysql start --init-file=/tmp/bootstrap.sql
 
 show status like 'wsrep_%';
 
-mysql -h l1.com -u root -p -e "show status like 'wsrep_%';""
+mysql -h l1.com -u root -proot -e "show status like 'wsrep_%';"
 mysql -h l1.com -u root -p
 
 

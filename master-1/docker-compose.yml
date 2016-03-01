@@ -11,6 +11,3 @@ master:
   tty: true
   volumes:
     - "./mysql:/etc/mysql"
-  environment:
-    IP: "test"
-    TERM: "dumb"
