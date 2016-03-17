@@ -17,7 +17,7 @@ RUN chmod +x /bin/galera-healthcheck
 
 
 
-RUN apt-get install -y software-properties-common build-essential zsh git jq
+RUN apt-get install -y software-properties-common build-essential zsh git jq s3cmd
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh && \
     cp -R /root/.oh-my-zsh /laravel && \
     chsh -s /bin/zsh
